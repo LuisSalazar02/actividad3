@@ -131,8 +131,17 @@ def move():
     dot(20, 'yellow')
 
     for point, course in ghosts:
-        if valid(point + course):
-            point.move(course)
+        # Calculate the distance between ghost and Pacman
+        distance_to_pacman = abs(pacman - point)
+
+        # If the ghost is near Pacman (within 50 units), increase its speed
+        if distance_to_pacman < 50:
+            speed_factor = 1.2  # Ghost moves 20% faster
+        else:
+            speed_factor = 1  # Normal speed
+
+        if valid(point + course * speed_factor):
+            point.move(course * speed_factor)
         else:
             options = [
                 vector(10, 0),
@@ -150,11 +159,12 @@ def move():
 
     update()
 
+    #collition detection, so end game
     for point, course in ghosts:
         if abs(pacman - point) < 20:
             return
 
-    ontimer(move, 100)
+    ontimer(move, 50)
 
 
 def change(x, y):

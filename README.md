@@ -20,3 +20,6 @@ options = [
 ```
 
 Al cambiar los valores en el array los fantasmas tendrán movimientos más ágiles a través del mapa.
+
+Se modifico el movimiento de los fantasmas, de tal forma que al estar cerca de pacman, su velocidad se incrementa un 20%.
+Aunado a ello, se acelero el comportamiento mediante la disminución de tiempo en el ontimer(move, 50)
