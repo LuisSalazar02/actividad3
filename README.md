@@ -1,4 +1,4 @@
-# Manual de uso pacman.py
+# Código modificado de pacman.py (freegames)
 
 ## tiles
 
